@@ -85,3 +85,29 @@ python sensor_signal_filter.py
 - **Email:** ogumaeluan@gmail.com
 - **Status:** B.Sc. Biomedical Technology Graduate | Awaiting NYSC Placement | Available for immediate Graduate Internship (Pre-NYSC) opportunities.
 
+## 🗄️ Project 3: Automated Asset Integrity & SQL Management
+### **The Problem**
+In oilfield operations, using an uncalibrated tool leads to inaccurate data and costly re-runs. Managing hundreds of high-tech sensors manually is inefficient and prone to error.
+
+### **The Solution**
+`asset_integrity_manager.py`  
+A Python-based SQL engine that:
+* **Tracks Assets:** Maintains a database of tool IDs and calibration histories.
+* **Audit Automation:** Runs SQL queries to flag tools that have exceeded the 180-day calibration threshold.
+* **Compliance:** Provides a clear "Pass/Fail" report for field readiness.
+
+### **Technical Stack**
+* **Language:** Python
+* **Database:** SQLite3
+* **Concepts:** Relational Databases, SQL CRUD Operations, Data Validation.
+
+### **Final Pro-Tip for the Group**
+By having these three projects, your friend has covered:
+1.  **Math/Physics** (Signal Filtering)
+2.  **Artificial Intelligence** (Predictive Maintenance)
+3.  **Data Management** (SQL Assets)
+
+This makes him a "Complete Digital Engineer." 
+
+"He should commit this new file to his GitHub (`git add .`, `git commit -m \"Added SQL asset manager\"`, `git push`) right now!"
+
