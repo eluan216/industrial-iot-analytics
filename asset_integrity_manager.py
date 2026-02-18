@@ -48,7 +48,7 @@ def run_calibration_audit(conn):
     expired_assets = cursor.fetchall()
 
     if expired_assets:
-        print(f"\n⚠️ WARNING: {len(expired_assets)} Assets require immediate re-calibration:\n")
+        print(f"\nWARNING: {len(expired_assets)} Assets require immediate re-calibration:\n")
         for asset in expired_assets:
             # last_calibration_date is stored as ISO string; convert to date for nicer output
             try:
@@ -57,7 +57,7 @@ def run_calibration_audit(conn):
                 last_cal = asset[2]
             print(f"FAILED: {asset[0]} ({asset[1]}) - Last Calibrated: {last_cal}")
     else:
-        print("\n✅ All assets are within calibration limits.")
+        print("\nAll assets are within calibration limits.")
     
     conn.close()
 
