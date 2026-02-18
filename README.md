@@ -96,6 +96,8 @@ A Python-based SQL engine that:
 * **Audit Automation:** Runs SQL queries to flag tools that have exceeded the 180-day calibration threshold.
 * **Compliance:** Provides a clear "Pass/Fail" report for field readiness.
 
+![Project 3 Demo](assets/project3_demo.svg)
+
 ### **Technical Stack**
 * **Language:** Python
 * **Database:** SQLite3
