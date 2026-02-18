@@ -140,3 +140,6 @@ dmypy.json
 *.pkl
 *.joblib
 *.h5
+
+# Local SQLite asset database (keep out of repo)
+slb_assets.db
