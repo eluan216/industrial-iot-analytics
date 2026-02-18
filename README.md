@@ -102,14 +102,3 @@ A Python-based SQL engine that:
 * **Language:** Python
 * **Database:** SQLite3
 * **Concepts:** Relational Databases, SQL CRUD Operations, Data Validation.
-
-### **Final Pro-Tip for the Group**
-By having these three projects, your friend has covered:
-1.  **Math/Physics** (Signal Filtering)
-2.  **Artificial Intelligence** (Predictive Maintenance)
-3.  **Data Management** (SQL Assets)
-
-This makes him a "Complete Digital Engineer." 
-
-"He should commit this new file to his GitHub (`git add .`, `git commit -m \"Added SQL asset manager\"`, `git push`) right now!"
-
