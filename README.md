@@ -1,104 +1,116 @@
 # Industrial Analytics & Signal Intelligence Suite
 
-**Author:** Oguma Eluanatein Odo
+**Author:** Oguma Eluanatein Odo  
+**Focus:** Digital Signal Processing · Predictive Maintenance · Asset Integrity
 
-**Field:** Biomedical Technology | Software Engineering | Data Science
+---
 
-## 📌 Executive Summary
+## Overview
 
-This repository serves as a technical portfolio demonstrating the convergence of Biomedical Instrumentation and Digital Energy Technology. The projects herein address two of the most critical challenges in the Energy sector: Signal Integrity (ensuring clean data from downhole sensors) and Operational Efficiency (predicting equipment failure to reduce Non-Productive Time - NPT).
+This repository demonstrates applied data science and signal processing for industrial environments — especially oil & gas and sensor-heavy operations. It covers three practical problems:
 
-## 🛠 Project 1: Digital Signal Processing (DSP) for Sensor Integrity
+1. **Signal integrity** — cleaning noisy sensor telemetry with DSP
+2. **Predictive maintenance** — classifying machine failure risk with Random Forest
+3. **Asset integrity** — tracking calibration compliance with SQL
 
-### The Problem
+These skills transfer directly from biomedical signal processing to industrial systems.
 
-In high-pressure, high-temperature (HPHT) environments, downhole sensors (Wireline/LWD) are subjected to extreme electrical noise, making it difficult to extract accurate "vitals" from the well. This challenge mirrors the clinical necessity of maintaining a high signal-to-noise ratio (SNR) in EKG monitoring, where environmental interference must be mitigated to ensure diagnostic accuracy.
+---
 
-### The Solution
+## Project 1 — Digital Signal Processing (Sensor Integrity)
 
-**sensor_signal_filter.py**
+**File:** `sensor_signal_filter.py`
 
-I implemented a 5th Order Butterworth Lowpass Filter using the SciPy signal processing library. This script:
+Simulates a clean 5 Hz process signal contaminated with high-frequency noise, then recovers it using a 5th-order Butterworth low-pass filter (zero-phase via `filtfilt`).
 
-- Generates a synthetic 5Hz "True Signal."
-- Simulates high-frequency Gaussian noise (interference).
-- Applies a zero-phase digital filter to recover the original signal.
+**Concepts:** Nyquist frequency, cutoff tuning, zero-phase filtering  
+**Stack:** NumPy · SciPy · Matplotlib
 
-### Technical Stack
-
-- **Language:** Python
-- **Key Libraries:** NumPy, SciPy, Matplotlib
-- **Concept:** Nyquist Frequency, Cutoff Frequency Tuning, Zero-phase Distortion.
-
-### Visual Result
-
-Figure 1: Comparison between raw sensor telemetry and the cleaned signal after Butterworth filtering.
-
-## 📊 Project 2: Predictive Maintenance via Machine Learning (AI)
-
-### The Problem
-
-Unplanned equipment failure costs the energy industry billions in NPT. Moving from "Reactive" to "Predictive" maintenance is a core goal of SLB's Digital Transformation.
-
-### The Solution
-
-**predictive_maintenance.py**
-
-Using the AI4I 2020 Predictive Maintenance Dataset, I developed a classification engine to identify potential failures before they occur.
-
-- **Feature Engineering:** Analyzed Air Temperature, Torque, and Tool Wear as key predictors.
-- **Model:** Employed a Random Forest Classifier due to its robustness against outliers.
-- **Impact:** The model achieved an 88% accuracy rate and a high F1-score across specific failure modes (e.g., Heat Dissipation and Power Failure), demonstrating its reliability for industrial deployment.
-
-### Technical Stack
-
-- **Language:** Python
-- **Key Libraries:** Pandas, Scikit-learn
-- **Algorithm:** Random Forest (Ensemble Learning)
-
-## 🚀 How to Run
-
-Clone this repository:
-```bash
-git clone https://github.com/[YourUsername]/industrial-iot-analytics.git
-```
-
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-Execute scripts:
 ```bash
 python sensor_signal_filter.py
 ```
 
-## 🎓 Connection to SLB Values
+Output is saved as `signal_processing_result.png`.
 
-- **Technology:** Demonstrates proficiency in Python and AI, supporting SLB's digital strategy.
-- **Performance:** Focused on reducing NPT and optimizing asset uptime.
-- **Precision:** Applies the rigorous standards of Biomedical Engineering to industrial data.
+---
 
-## 📬 Contact
+## Project 2 — Predictive Maintenance (Machine Failure Classification)
 
-- **LinkedIn:** linkedin.com/in/eluanatein-oguma-5552571b6
-- **Email:** ogumaeluan@gmail.com
-- **Status:** B.Sc. Biomedical Technology Graduate | Awaiting NYSC Placement | Available for immediate Graduate Internship (Pre-NYSC) opportunities.
+**File:** `predictive_maintenance.py`
 
-## 🗄️ Project 3: Automated Asset Integrity & SQL Management
-### **The Problem**
-In oilfield operations, using an uncalibrated tool leads to inaccurate data and costly re-runs. Managing hundreds of high-tech sensors manually is inefficient and prone to error.
+Trains a Random Forest classifier on the AI4I 2020 Predictive Maintenance dataset to predict machine failure from temperature, torque, rotational speed, and tool wear.
 
-### **The Solution**
-`asset_integrity_manager.py`  
-A Python-based SQL engine that:
-* **Tracks Assets:** Maintains a database of tool IDs and calibration histories.
-* **Audit Automation:** Runs SQL queries to flag tools that have exceeded the 180-day calibration threshold.
-* **Compliance:** Provides a clear "Pass/Fail" report for field readiness.
+**Stack:** Pandas · scikit-learn  
+**Metrics:** Accuracy, weighted F1, per-class report, feature importance
 
-![Project 3 Demo](assets/project3_demo.svg)
+```bash
+# Place ai4i2020.csv in the working directory, then:
+python predictive_maintenance.py
+```
 
-### **Technical Stack**
-* **Language:** Python
-* **Database:** SQLite3
-* **Concepts:** Relational Databases, SQL CRUD Operations, Data Validation.
+---
+
+## Project 3 — Asset Integrity & Calibration Tracking
+
+**File:** `asset_integrity_manager.py`
+
+Python + SQLite tool that tracks industrial assets and flags tools that have exceeded a 180-day calibration window. Produces a clear Pass/Fail readiness report.
+
+**Concepts:** Relational data, CRUD, compliance automation
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/eluan216/industrial-iot-analytics.git
+cd industrial-iot-analytics
+pip install -r requirements.txt
+
+# Run DSP demo
+python sensor_signal_filter.py
+
+# Run predictive maintenance (requires dataset)
+python predictive_maintenance.py
+
+# Run asset integrity manager
+python asset_integrity_manager.py
+```
+
+---
+
+## Repository Structure
+
+```text
+industrial-iot-analytics/
+├── sensor_signal_filter.py      # DSP noise reduction demo
+├── predictive_maintenance.py    # Random Forest failure prediction
+├── asset_integrity_manager.py   # SQL calibration tracker
+├── requirements.txt
+├── assets/                      # Supporting images
+└── signal_processing_result.png # Example DSP output
+```
+
+---
+
+## Why This Matters
+
+- Clean sensor data is a prerequisite for reliable downstream ML
+- Predictive maintenance reduces unplanned downtime (NPT)
+- Calibration tracking protects data quality and operational compliance
+
+These are the same principles used in biomedical instrumentation — high SNR, rigorous evaluation, and operational readiness.
+
+---
+
+## Author
+
+**Oguma Eluanatein Odo**  
+B.Sc. Biomedical Technology  
+[LinkedIn](https://linkedin.com/in/eluanatein-oguma-5552571b6) · [GitHub](https://github.com/eluan216) · ogumaeluan@gmail.com
+
+---
+
+## License
+
+MIT
